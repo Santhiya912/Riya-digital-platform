@@ -1,6 +1,7 @@
 import Hero from "@/components/sections/Hero";
 import Transformation from "@/components/sections/Transformation";
 import ServicesShowcase from "@/components/sections/ServicesShowcase";
+import TechEcosystem from "@/components/sections/TechEcosystem";
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
       <Hero />
       <Transformation />
       <ServicesShowcase />
+      <TechEcosystem />
     </main>
   );
 }
