@@ -1,3 +1,4 @@
+import type { VisualType } from "@/components/sections/ServiceVisuals";
 export type Service = {
   slug: string;
   title: string;
@@ -8,6 +9,7 @@ export type Service = {
   useCases: string[];
   techStack: string[];
   process: { step: string; description: string }[];
+  visual: VisualType;
 };
 
 export const services: Service[] = [
@@ -27,6 +29,7 @@ export const services: Service[] = [
       { step: "Develop", description: "Clean, scalable code." },
       { step: "Launch", description: "Test, deploy and support." },
     ],
+    visual: "browser",
   },
   {
     slug: "app-development",
@@ -43,6 +46,7 @@ export const services: Service[] = [
       { step: "Develop", description: "Build and test." },
       { step: "Launch", description: "Store release and support." },
     ],
+    visual: "phone",
   },
   {
     slug: "digital-marketing",
@@ -59,6 +63,7 @@ export const services: Service[] = [
       { step: "Execute", description: "Run campaigns." },
       { step: "Optimize", description: "Measure and improve." },
     ],
+    visual: "growth",
   },
   {
     slug: "ar-vr",
@@ -75,6 +80,7 @@ export const services: Service[] = [
       { step: "Build", description: "Develop interactions." },
       { step: "Deploy", description: "Launch on devices or web." },
     ],
+    visual: "vr",
   },
   {
     slug: "3d-modeling",
@@ -91,6 +97,7 @@ export const services: Service[] = [
       { step: "Texture", description: "Materials and lighting." },
       { step: "Deliver", description: "Final render or web-ready file." },
     ],
+    visual: "model",
   },
   {
     slug: "ui-ux-design",
@@ -107,6 +114,7 @@ export const services: Service[] = [
       { step: "Design", description: "Visual interface." },
       { step: "Test", description: "Validate and refine." },
     ],
+    visual: "ui",
   },
 ];
 
