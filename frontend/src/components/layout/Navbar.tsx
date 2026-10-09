@@ -36,7 +36,7 @@ export default function Navbar() {
         </ul>
 
         <Link
-          href="/contact"
+          href="/book-consultation"
           className="hidden rounded-full bg-gold px-5 py-2 text-sm font-semibold text-black transition hover:bg-gold-light md:block"
         >
           Book a Free Consultation
@@ -66,7 +66,7 @@ export default function Navbar() {
           ))}
           <li>
             <Link
-              href="/contact"
+              href="/book-consultation"
               onClick={() => setOpen(false)}
               className="inline-block rounded-full bg-gold px-5 py-2 text-sm font-semibold text-black"
             >

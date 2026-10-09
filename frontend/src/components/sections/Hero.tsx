@@ -49,7 +49,7 @@ export default function Hero() {
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
             <Link
-              href="/contact"
+              href="/book-consultation"
               className="rounded-full bg-gold px-7 py-3 font-semibold text-black transition hover:bg-gold-light"
             >
               Book a Free Consultation
