@@ -1,3 +1,4 @@
+const admin = require("./routes/admin");
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
@@ -11,6 +12,7 @@ app.use(express.json({ limit: "1mb" }));
 
 app.get("/api/health", (_req, res) => res.json({ success: true, status: "ok" }));
 app.use("/api", forms);
+app.use("/api/admin", admin);
 
 // 404
 app.use((_req, res) => res.status(404).json({ success: false, message: "Not found" }));
