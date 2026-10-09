@@ -23,6 +23,11 @@ A premium, multi-page corporate website for **Riyadvi Software Technologies**, c
 - **Contact page**: validated form, WhatsApp link, Calendly placeholder
 - **Careers**: department / designation / experience filters, dynamic job pages, application form
 - **Backend API** with validation, error handling and MongoDB storage
+- **Consultation booking**: dedicated page, stored in MongoDB, shown in admin
+- **About page**: real company story, mission/vision/goal, stats, award, animated timeline
+- **Blog**: featured article, search, categories, tags, related articles, dynamic article pages
+- **Why Riyadvi** homepage section: since 2021 milestones, end-to-end journey, Business Health    Checkup CTA
+- **Admin dashboard** (`/admin`): JWT login, lead counts, tables for all lead types, status    updates (new / contacted / closed)
 
 ## Tech Stack
 
@@ -64,6 +69,7 @@ Pages are generated from data files, not hardcoded:
 data/services.ts  -> /services/[slug]  (one template, six pages)
 data/portfolio.ts -> /portfolio/[slug] (one case-study template)
 data/jobs.ts      -> /careers/[slug]   (one job template)
+data/blog.ts      -> /blog/[slug]      (one article template)
 ```
 
 **To add a new service, project or job, add one entry to the matching data file.** The list pages, detail pages, filters and static routes update automatically. The data shapes are typed, so they can be swapped for a CMS (Strapi, Sanity, WordPress) or a database API later without changing the templates.
@@ -91,11 +97,12 @@ npm run dev          # http://localhost:3000
 
 **`backend/.env`**
 
-```
 PORT=5000
 MONGODB_URI=mongodb+srv://<user>:<password>@<cluster>.mongodb.net/riyadvi?appName=Cluster0
 FRONTEND_URL=http://localhost:3000
-```
+ADMIN_EMAIL=<admin email>
+ADMIN_PASSWORD=<strong password>
+JWT_SECRET=<long random string>
 
 **`frontend/.env.local`**
 
@@ -134,16 +141,16 @@ All endpoints accept JSON `POST` requests and validate input with Zod.
 
 **Server error (500):** `{ "success": false, "message": "Something went wrong" }`
 
+
 ## Deployment
 
 **Backend (Render)**
 - Root directory: `backend`, build: `npm install`, start: `npm start`
-- Env vars: `MONGODB_URI`, `FRONTEND_URL` (the Vercel URL, no trailing slash)
+- Env vars: `MONGODB_URI`, `FRONTEND_URL` (the Vercel URL, no trailing slash), `ADMIN_EMAIL`, `ADMIN_PASSWORD`, `JWT_SECRET`
 
 **Frontend (Vercel)**
 - Root directory: `frontend`
 - Env var: `NEXT_PUBLIC_API_URL` (the Render URL, no trailing slash)
-
 ## AI Tools Used
 
 ### 1. Claude
@@ -152,25 +159,20 @@ All endpoints accept JSON `POST` requests and validate input with Zod.
 **Example prompt:**
 > Set up a Next.js App Router monorepo with /frontend and /backend. Create a reusable service page template driven by a services.ts data file, with a Tailwind theme using gold #D4AF37 and black, and Lenis smooth scrolling.
 
-**What was generated:** Project structure, the typed `services.ts` data model, the dynamic `[slug]` page template, the R3F hero scene, Express routes and Zod schemas.
+**What was generated:** Project structure, the typed `services.ts` data model, the dynamic `[slug]` page template, the R3F hero scene, Express routes and Zod schemas, the admin dashboard and JWT auth.
 
 **What I changed manually:**
 - Replaced drei `Html` tags in the tech sphere with `Text` + `Billboard` after hitting a React 19 error ("Attempted to synchronously unmount a root while React was already rendering")
 - Fixed the MongoDB connection string (database name must come before `?`)
 - Fixed missing `zod` dependency and missing npm scripts in `backend/package.json`
 - Debugged Atlas IP-whitelist and Render environment-variable issues during deployment
-- Replaced placeholder content with Riyadvi-specific content
+- Fixed JSX nesting error on the contact page (card placed inside `<h2>`)
+- Fixed a missing-comma syntax error in `jobs.ts` after find-and-replace
+- Debugged CORS and Render environment variables (`MONGODB_URI=` pasted into the value field)
+- Replaced placeholder content with real Riyadvi content from the existing website
+- Rotated database credentials after they were exposed
 
 **Why selected:** Strong at multi-file reasoning and explaining generated code, which helped me understand and own it.
-
-### 2. <Add other tools you actually used>
-**Purpose:**
-**Example prompt:**
-**What was generated:**
-**What I changed manually:**
-**Why selected:**
-
-> Only list tools you really used (for example ChatGPT, Cursor, v0, Midjourney). Be specific and honest.
 
 ## 3D Libraries Used
 
@@ -183,12 +185,11 @@ All endpoints accept JSON `POST` requests and validate input with Zod.
 - **GSAP + ScrollTrigger**: pinned scroll storytelling
 - **Lenis**: smooth scrolling, synced with ScrollTrigger
 - **Motion**: micro-interactions, service visuals, form step transitions
-
 ## Third-Party Assets
 
 - Fonts: Inter, Poppins (Google Fonts via `next/font`)
 - All 3D visuals are generated in code. No external 3D models are used.
-- Portfolio and job content is placeholder content based on the existing Riyadvi website.
+- About page and contact details are taken from the existing Riyadvi website. Portfolio, blog and job content is sample content.
 
 ## Performance Optimization
 
@@ -202,19 +203,20 @@ All endpoints accept JSON `POST` requests and validate input with Zod.
 ## Known Limitations
 
 - Careers accepts a **resume link**, not a file upload
-- No admin dashboard yet
+- Single admin account from environment variables; token stored in sessionStorage
 - No email notification yet
-- Blog and About pages are in progress
-- Calendly and WhatsApp use placeholders
-- Render free tier has cold starts
-- Portfolio and blog content is sample content
+- Calendly is a placeholder
+- Render free tier has cold starts (30-50 seconds)
+- Portfolio, blog and job content is sample content; About and contact details come from the existing Riyadvi website
+- Only 4 of the 10 suggested portfolio projects are added
 
 ## Future Improvements
 
-- Admin dashboard (JWT auth, enquiry and application tables, status updates)
-- Resume upload with Cloudinary or S3
-- Email notifications with Nodemailer
-- CMS integration (Strapi / Sanity) for services, portfolio, blog and jobs
-- Custom Blender/Spline 3D models
+- Resume upload (Cloudinary / S3)
+- Email notifications (Nodemailer)
+- Multi-user admin with hashed passwords and httpOnly cookies
+- CMS integration (Strapi / Sanity) for blog, services and jobs
+- Custom Blender / Spline 3D models
 - Lighthouse and Core Web Vitals pass
 - Automated tests and CI
+
