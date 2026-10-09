@@ -89,7 +89,7 @@ export const services: Service[] = [
     problem: "Flat images can't show a product's full detail.",
     solution: "We create detailed 3D models and animations.",
     features: ["Product models", "Walkthroughs", "Rendering", "Animation"],
-    useCases: ["Product visualization", "Architecture", "Advertising"],
+    useCases: ["Product visualization", "Architecture", "Advertising", "Game assets"],
     techStack: ["Blender", "Three.js", "Spline", "Substance"],
     process: [
       { step: "Brief", description: "Collect references." },

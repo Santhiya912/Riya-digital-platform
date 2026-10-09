@@ -18,7 +18,7 @@ export const jobs: Job[] = [
     department: "Engineering",
     designation: "Mid-level",
     experience: "1-3 years",
-    location: "Salem, Tamil Nadu",
+    location: "Chennai, Tamil Nadu"
     type: "Full-time",
     summary: "Build and ship web applications using React, Next.js, Node.js and MongoDB.",
     responsibilities: [
@@ -40,7 +40,7 @@ export const jobs: Job[] = [
     department: "Design",
     designation: "Junior",
     experience: "1-3 years",
-    location: "Salem, Tamil Nadu",
+    location: "Chennai, Tamil Nadu"
     type: "Full-time",
     summary: "Design intuitive, beautiful interfaces for web and mobile products.",
     responsibilities: [
@@ -80,7 +80,7 @@ export const jobs: Job[] = [
     department: "Design",
     designation: "Intern",
     experience: "Fresher",
-    location: "Salem, Tamil Nadu",
+    location: "Chennai, Tamil Nadu"
     type: "Internship",
     summary: "Create 3D models and animations for web and AR/VR projects.",
     responsibilities: [

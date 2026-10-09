@@ -4,16 +4,13 @@ export const metadata = {
   title: "Contact | Riyadvi",
 };
 
-// Replace this with the real Riyadvi WhatsApp number.
 // Country code only, without + or spaces.
-const WHATSAPP = "9108072487427";
+const WHATSAPP = "918072487427";
 
 export default function ContactPage() {
   return (
     <main className="mx-auto max-w-6xl px-6 pb-24 pt-32">
-      <p className="text-sm uppercase tracking-widest text-gold">
-        Contact
-      </p>
+      <p className="text-sm uppercase tracking-widest text-gold">Contact</p>
 
       <h1 className="mt-2 font-display text-5xl font-bold">
         Let&apos;s Build Something Great
@@ -36,23 +33,27 @@ export default function ContactPage() {
             rel="noopener noreferrer"
             className="block rounded-2xl border border-white/10 bg-surface p-6 transition hover:border-gold/60"
           >
-            <h2 className="font-display text-lg text-gold">
-              Chat on WhatsApp
-            </h2>
-
+            <h2 className="font-display text-lg text-gold">Chat on WhatsApp</h2>
             <p className="mt-2 text-sm text-muted">
               Quick questions? Message us directly.
             </p>
           </a>
 
           <div className="rounded-2xl border border-white/10 bg-surface p-6">
-            <h2 className="font-display text-lg text-gold">
-              Book a Call
-            </h2>
-
+            <h2 className="font-display text-lg text-gold">Book a Call</h2>
             <p className="mt-2 text-sm text-muted">
               Pick a time that suits you. (Calendly link will be added here.)
             </p>
+          </div>
+
+          <div className="rounded-2xl border border-white/10 bg-surface p-6 text-sm text-muted">
+            <h2 className="font-display text-lg text-gold">Visit or Call Us</h2>
+            <p className="mt-2">
+              17, Aarti Arcade, Dr Radha Krishnan Salai, Krishnapuram, Mylapore,
+              Chennai 600004
+            </p>
+            <p className="mt-2">+91 8072487427</p>
+            <p className="mt-2">info@riyadvisoftwaretechnologies.com</p>
           </div>
         </aside>
       </div>

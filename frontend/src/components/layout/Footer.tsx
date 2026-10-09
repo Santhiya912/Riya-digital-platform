@@ -10,6 +10,13 @@ export default function Footer() {
             Technology & Digital Solutions Partner. Custom software, design and
             growth, since 2021.
           </p>
+          <p className="mt-3 text-xs text-muted">
+            Mylapore, Chennai, Tamil Nadu 600004
+            <br />
+            +91 8072487427
+            <br />
+            info@riyadvisoftwaretechnologies.com
+          </p>
         </div>
 
         <div>
